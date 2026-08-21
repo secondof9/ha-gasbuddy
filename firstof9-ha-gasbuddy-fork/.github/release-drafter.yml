@@ -1,0 +1,54 @@
+name-template: "$RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
+
+categories:
+  - title: "🚨 Breaking changes"
+    semver-increment: "major"
+    when:
+      label: "breaking-change"
+
+  - title: "✨ New features"
+    semver-increment: "minor"
+    when:
+      label: "new-feature"
+
+  - title: "🐛 Bug fixes"
+    semver-increment: "patch"
+    when:
+      label: "bugfix"
+
+  - title: "🚀 Enhancements"
+    semver-increment: "patch"
+    when:
+      labels:
+        - "enhancement"
+        - "refactor"
+        - "performance"
+
+  - title: "🧰 Maintenance"
+    semver-increment: "patch"
+    when:
+      labels:
+        - "maintenance"
+        - "ci"
+
+  - title: "📚 Documentation"
+    semver-increment: "patch"
+    when:
+      labels:
+        - "documentation"
+
+  - title: "⬆️ Dependency updates"
+    semver-increment: "patch"
+    collapse-after: 1
+    when:
+      labels:
+        - "dependencies"
+
+  - type: "version-resolver"
+    semver-increment: "patch"
+
+template: |
+  ## What's Changed
+
+  $CHANGES
